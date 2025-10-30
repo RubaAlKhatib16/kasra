@@ -1,0 +1,195 @@
+{
+  "0.0.524444": [
+    {
+      "type": "Pay Later Agreement",
+      "amount": "12 JOD",
+      "hbar_equivalent": "120 HBAR",
+      "agreement_id": "0",
+      "date": "10/15/2025",
+      "status": "Active"
+    }
+  ],
+  "0.0.972144": [
+    {
+      "type": "Pay Later Agreement",
+      "amount": "40 JOD",
+      "hbar_equivalent": "400 HBAR",
+      "agreement_id": "0",
+      "date": "10/15/2025",
+      "status": "Active"
+    }
+  ],
+  "0.0.12345": [
+    {
+      "agreementId": "BNPL-1760607680782-850",
+      "buyerAccountId": "0.0.12345",
+      "totalAmountHbar": 100,
+      "installments": 4,
+      "installmentAmount": 25,
+      "merchantId": "0.0.7055839",
+      "creationDate": "2025-10-16T09:41:20.782Z",
+      "nextDueDate": "2025-11-15T09:41:20.782Z",
+      "status": "Active",
+      "payments": [
+        {
+          "transactionId": "0.0.123456@1760607685049",
+          "amount": 25,
+          "date": "2025-10-16T09:41:25.049Z",
+          "status": "Completed"
+        }
+      ]
+    }
+  ],
+  "0.0.31156": [
+    {
+      "agreementId": "BNPL-1760611674819-299",
+      "buyerAccountId": "0.0.31156",
+      "totalAmountHbar": 250,
+      "installments": 4,
+      "installmentAmount": 62.5,
+      "merchantId": "0.0.7055839",
+      "creationDate": "2025-10-16T10:47:54.819Z",
+      "nextDueDate": "2025-11-15T10:48:05.147Z",
+      "status": "Active",
+      "payments": [
+        {
+          "transactionId": "0.0.123456@1760611685147",
+          "amount": 62.5,
+          "date": "2025-10-16T10:48:05.147Z",
+          "status": "Completed"
+        }
+      ]
+    }
+  ],
+  "0.0.10500": [
+    {
+      "agreementId": "BNPL-1760810448563-205",
+      "buyerAccountId": "0.0.10500",
+      "totalAmountHbar": 250,
+      "installments": 4,
+      "installmentAmount": 62.5,
+      "merchantId": "0.0.7055839",
+      "creationDate": "2025-10-18T18:00:48.563Z",
+      "nextDueDate": "2025-11-17T18:00:57.921Z",
+      "status": "Active",
+      "payments": [
+        {
+          "transactionId": "0.0.123456@1760810457921",
+          "amount": 62.5,
+          "date": "2025-10-18T18:00:57.921Z",
+          "status": "Completed"
+        }
+      ]
+    }
+  ],
+  "0.0.185326": [
+    {
+      "agreementId": "BNPL-1760812626247-172",
+      "buyerAccountId": "0.0.185326",
+      "totalAmountHbar": 400,
+      "installments": 4,
+      "installmentAmount": 100,
+      "merchantId": "0.0.7055839",
+      "creationDate": "2025-10-18T18:37:06.247Z",
+      "nextDueDate": "2025-11-17T18:37:18.926Z",
+      "status": "Active",
+      "payments": [
+        {
+          "transactionId": "0.0.123456@1760812638926",
+          "amount": 100,
+          "date": "2025-10-18T18:37:18.926Z",
+          "status": "Completed"
+        }
+      ]
+    }
+  ],
+  "0.0.511777": [
+    {
+      "agreementId": "BNPL-1760813766231-258",
+      "buyerAccountId": "0.0.511777",
+      "totalAmountHbar": 250,
+      "installments": 12,
+      "installmentAmount": 20.833333333333332,
+      "merchantId": "0.0.7055839",
+      "creationDate": "2025-10-18T18:56:06.231Z",
+      "nextDueDate": "2025-11-17T18:56:06.231Z",
+      "status": "Active",
+      "payments": []
+    }
+  ],
+  "0.0.706983": [
+    {
+      "agreementId": "BNPL-1760813816700-712",
+      "buyerAccountId": "0.0.706983",
+      "totalAmountHbar": 250,
+      "installments": 4,
+      "installmentAmount": 62.5,
+      "merchantId": "0.0.7055839",
+      "creationDate": "2025-10-18T18:56:56.700Z",
+      "nextDueDate": "2025-11-17T18:57:03.885Z",
+      "status": "Active",
+      "payments": [
+        {
+          "transactionId": "0.0.123456@1760813823885",
+          "amount": 62.5,
+          "date": "2025-10-18T18:57:03.885Z",
+          "status": "Completed"
+        }
+      ]
+    }
+  ],
+  "0.0.453308": [
+    {
+      "agreementId": "BNPL-1760814030845-61",
+      "buyerAccountId": "0.0.453308",
+      "totalAmountHbar": 150,
+      "installments": 4,
+      "installmentAmount": 37.5,
+      "merchantId": "0.0.7055839",
+      "creationDate": "2025-10-18T19:00:30.845Z",
+      "nextDueDate": "2025-11-17T19:00:41.862Z",
+      "status": "Active",
+      "payments": [
+        {
+          "transactionId": "0.0.123456@1760814041862",
+          "amount": 37.5,
+          "date": "2025-10-18T19:00:41.862Z",
+          "status": "Completed"
+        }
+      ]
+    }
+  ],
+  "0.0.94188": [
+    {
+      "agreementId": "BNPL-1760870718569-541",
+      "buyerAccountId": "0.0.94188",
+      "totalAmountHbar": 180,
+      "installments": 4,
+      "installmentAmount": 45,
+      "merchantId": "0.0.7055839",
+      "creationDate": "2025-10-19T10:45:18.570Z",
+      "nextDueDate": "2025-11-18T10:45:30.183Z",
+      "status": "Active",
+      "payments": [
+        {
+          "transactionId": "0.0.123456@1760870730183",
+          "amount": 45,
+          "date": "2025-10-19T10:45:30.183Z",
+          "status": "Completed"
+        }
+      ]
+    },
+    {
+      "agreementId": "BNPL-1760871529590-36",
+      "buyerAccountId": "0.0.94188",
+      "totalAmountHbar": 65,
+      "installments": 4,
+      "installmentAmount": 16.25,
+      "merchantId": "0.0.7055839",
+      "creationDate": "2025-10-19T10:58:49.590Z",
+      "nextDueDate": "2025-11-18T10:58:49.590Z",
+      "status": "Active",
+      "payments": []
+    }
+  ]
+}

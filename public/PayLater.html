@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Later | Kasra - Shop Now, Pay Over Time</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #7b2cbf;
+            --primary-dark: #5a189a;
+            --primary-light: #9d4edd;
+            --accent: #c77dff;
+            --silver: #e0e0e0;
+            --silver-dark: #bdbdbd;
+            --silver-light: #f5f5f5;
+            --text: #212121;
+            --text-light: #757575;
+            --white: #fff;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-right: 30px;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+            display: block;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            color: var(--white);
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-3px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--text);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateY(0);
+            opacity: 0;
+        }
+
+        .feature-card.animated {
+            opacity: 1;
+            transform: translateY(-20px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+        }
+
+        /* Stores Section */
+        .stores-section {
+            background: var(--white);
+        }
+
+        .stores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .store-logo {
+            background: var(--silver-light);
+            height: 100px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--text);
+            transition: all 0.3s ease;
+            transform: scale(0.95);
+            opacity: 0;
+        }
+
+        .store-logo.animated {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .store-logo:hover {
+            background: var(--primary-light);
+            color: var(--white);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Dashboard Section */
+        .dashboard-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+        }
+
+        .dashboard-section .section-title h2,
+        .dashboard-section .section-title p {
+            color: var(--white);
+        }
+
+        .dashboard-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .dashboard-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .dashboard-image-placeholder {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dashboard-image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0.1) 50%,
+                    rgba(255, 255, 255, 0) 100%);
+            transform: rotate(30deg);
+            animation: shimmer 3s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) rotate(30deg);
+            }
+
+            100% {
+                transform: translateX(100%) rotate(30deg);
+            }
+        }
+
+        .dashboard-features {
+            flex: 1;
+        }
+
+        .dashboard-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .dashboard-feature i {
+            font-size: 24px;
+            margin-right: 15px;
+            color: var(--accent);
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            display: flex;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .payment-method {
+            flex: 1;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .payment-method h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .steps {
+            list-style: none;
+        }
+
+        .steps li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: var(--primary);
+            color: var(--white);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--white);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            background: var(--silver-light);
+            transition: all 0.5s ease-out;
+            transform: perspective(500px) rotateX(30deg);
+            opacity: 0;
+        }
+
+        .step-card.animated {
+            opacity: 1;
+            transform: perspective(500px) rotateX(0);
+        }
+
+        .step-card:hover {
+            background: var(--primary-light);
+            color: var(--white);
+        }
+
+        .step-card:hover h3,
+        .step-card:hover p {
+            color: var(--white);
+        }
+
+        .step-number-large {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .step-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .step-card p {
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--silver-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-toggle i {
+            transform: rotate(180deg);
+        }
+
+        .faq-toggle {
+            transition: var(--transition);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: var(--white);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: var(--silver-light);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform: translateX(-50px);
+            opacity: 0;
+        }
+
+        .benefit-card.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: var(--silver);
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a {
+            position: relative;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .dashboard-content {
+                flex-direction: column;
+            }
+
+            .payment-methods {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            .nav-links {
+                margin-bottom: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links li {
+                margin: 0 10px 10px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-right: 30px;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+            display: block;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Dropdown Styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 12px;
+            min-width: 800px;
+            padding: 30px;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown-section h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .dropdown-item {
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background: var(--silver-light);
+        }
+
+        .dropdown-item i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .dropdown-item h5 {
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .dropdown-item p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .stores-section {
+            text-align: center;
+            padding: 100px 0 80px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .stores-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .store-logo {
+            background: #f9f9f9;
+            border-radius: 16px;
+            width: 200px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .store-logo i {
+            font-size: 32px;
+            color: #6a0dad;
+            margin-bottom: 10px;
+        }
+
+        .store-logo h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .store-logo p {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.4;
+        }
+
+        .store-logo:hover {
+            background: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn-primary {
+            background: #6a0dad;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #580c94;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <img src="5980830277548756190-removebg-preview.svg" alt="Kasra Logo" class="logo-img">
+                </a>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#">Personal</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-section">
+                                <h4>PAY WITH KASRA | NO LATE FEES, SHARIA COMPLIANT</h4>
+                                <div class="dropdown-grid">
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-credit-card"></i>
+                                        <h5>Pay Later</h5>
+                                        <p>Pay in up to 24 months</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-store"></i>
+                                        <h5>Shop</h5>
+                                        <p>Discover your favorite stores</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <h5>Buyer Protection</h5>
+                                        <p>Shop securely and confidently</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-chart-line"></i>
+                                        <h5>Your Credit Score</h5>
+                                        <p>Pay on time to unlock benefits</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-tags"></i>
+                                        <h5>Kasra Deals</h5>
+                                        <p>Exclusive deals from your favorite stores</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-headset"></i>
+                                        <h5>Need Support?</h5>
+                                        <p>We are here to help!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Business</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-section">
+                                <h4>Kasra for Business</h4>
+                                <div class="dropdown-grid">
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-bullhorn"></i>
+                                        <h5>Kasra Ads</h5>
+                                        <p>Boost your engagement with customers.</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-star"></i>
+                                        <h5>Success Stories</h5>
+                                        <p>See the success stories of our partners.</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-link"></i>
+                                        <h5>Integration Guide</h5>
+                                        <p>Everything you need to connect your store.</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-headset"></i>
+                                        <h5>Need Support?</h5>
+                                        <p>Our team is here to help you step by step.</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-user-plus"></i>
+                                        <h5>Join as a Merchant</h5>
+                                        <p>Grow your sales with thousands of merchants.</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        <h5>Login</h5>
+                                        <p>Manage your sales easily.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li class="dropdown">
+                        <a href="#">Company</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-section">
+                                <h4>ABOUT KASRA | OUR MISSION</h4>
+                                <div class="dropdown-grid">
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <h5>Our Story</h5>
+                                        <p>Learn about our journey and vision</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-newspaper"></i>
+                                        <h5>Newsroom</h5>
+                                        <p>Latest updates and announcements</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-users"></i>
+                                        <h5>Careers</h5>
+                                        <p>Join our growing team</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-handshake"></i>
+                                        <h5>Partnerships</h5>
+                                        <p>Strategic alliances and collaborations</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-award"></i>
+                                        <h5>Awards & Recognition</h5>
+                                        <p>Our achievements in the industry</p>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="fas fa-envelope"></i>
+                                        <h5>Contact Us</h5>
+                                        <p>Get in touch with our team</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+                <a href="#" class="cta-button">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 style="text-shadow: 0 5px 15px rgba(0,0,0,0.2);">Shop Now.Pay Later — with Kasra</h1>
+
+                <p
+                    style="max-width: 700px; margin: 0 auto 30px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);">
+                    Take control of your finances — shop now and pay over time, with flexible monthly installments up to
+                    <strong>24 months</strong>, fully <strong>Sharia-compliant</strong> and with <strong>no late
+                        fees</strong>.
+                </p>
+                <a href="#" class="btn btn-primary">Start Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Smart, Flexible, Secure</h2>
+                <p>Kasra gives you a smarter way to shop. Split your payments into easy installments while enjoying full
+                    transparency, security, and peace of mind.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h3>No Late Fees</h3>
+                    <p>Never worry about hidden charges or penalties for late payments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star-and-crescent"></i>
+                    </div>
+                    <h3>100% Sharia-compliant</h3>
+                    <p>Our financial solutions adhere to Islamic finance principles.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Approval</h3>
+                    <p>Get approved in seconds with our fast, seamless verification process.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Track & Manage</h3>
+                    <p>Monitor your payments and financial health anytime, anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stores Section -->
+    <section class="stores-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Thousands of Stores — One Platform</h2>
+                <p>Shop from hundreds of trusted online and in-store brands — all in one place. Discover exclusive
+                    <strong>Kasra Deals</strong> and enjoy special discounts with every purchase.
+                </p>
+            </div>
+
+            <div class="stores-grid">
+                <div class="store-logo">
+                    <i class="fas fa-tshirt"></i>
+                    <h4>Fashion</h4>
+                    <p>Trendy clothing & accessories</p>
+                </div>
+
+                <div class="store-logo">
+                    <i class="fas fa-tv"></i>
+                    <h4>Electronics</h4>
+                    <p>Latest gadgets & smart devices</p>
+                </div>
+
+                <div class="store-logo">
+                    <i class="fas fa-couch"></i>
+                    <h4>Home & Living</h4>
+                    <p>Decor, furniture & home essentials</p>
+                </div>
+
+                <div class="store-logo">
+                    <i class="fas fa-spa"></i>
+                    <h4>Beauty</h4>
+                    <p>Skincare, makeup & self-care</p>
+                </div>
+
+                <div class="store-logo">
+                    <i class="fas fa-basketball-ball"></i>
+                    <h4>Sports</h4>
+                    <p>Gear, apparel & accessories</p>
+                </div>
+
+                <div class="store-logo">
+                    <i class="fas fa-plane"></i>
+                    <h4>Travel</h4>
+                    <p>Book trips & explore destinations</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#" class="btn btn-primary">Explore Stores</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Total Control in Your Dashboard</h2>
+                <p>Manage your payment plans directly from your <strong>Kasra Dashboard</strong>. Stay on top of your
+                    payments, set reminders, and enjoy full control over your financial journey.</p>
+            </div>
+            <div class="dashboard-content">
+                <div class="dashboard-image">
+                    <div class="dashboard-image-placeholder">
+                        Kasra Dashboard Preview
+                    </div>
+                </div>
+                <div class="dashboard-features">
+                    <div class="dashboard-feature">
+                        <i class="fas fa-bell"></i>
+                        <div>
+                            <h3>Payment Reminders</h3>
+                            <p>Never miss a payment with smart notifications</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-feature">
+                        <i class="fas fa-chart-pie"></i>
+                        <div>
+                            <h3>Spending Insights</h3>
+                            <p>Understand your spending patterns with visual reports</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-feature">
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <h3>Secure Transactions</h3>
+                            <p>Bank-level security for all your financial activities</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-feature">
+                        <i class="fas fa-sync-alt"></i>
+                        <div>
+                            <h3>Flexible Rescheduling</h3>
+                            <p>Adjust your payment dates when needed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>How to Pay with Kasra</h2>
+                <p>Whether shopping online or in-store, Kasra makes payment simple and convenient.</p>
+            </div>
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <h3>Pay In-store</h3>
+                    <ol class="steps">
+                        <li>
+                            <div class="step-number">1</div>
+                            <div>Tell the cashier you want to use Kasra.</div>
+                        </li>
+                        <li>
+                            <div class="step-number">2</div>
+                            <div>Share your registered mobile number.</div>
+                        </li>
+                        <li>
+                            <div class="step-number">3</div>
+                            <div>Receive an SMS with a payment link.</div>
+                        </li>
+                        <li>
+                            <div class="step-number">4</div>
+                            <div>Complete the payment and track it via your dashboard.</div>
+                        </li>
+                    </ol>
+                </div>
+                <div class="payment-method">
+                    <h3>Pay Online</h3>
+                    <ol class="steps">
+                        <li>
+                            <div class="step-number">1</div>
+                            <div>Choose Kasra at checkout.</div>
+                        </li>
+                        <li>
+                            <div class="step-number">2</div>
+                            <div>Log in or create an account.</div>
+                        </li>
+                        <li>
+                            <div class="step-number">3</div>
+                            <div>Verify your identity (first time only).</div>
+                        </li>
+                        <li>
+                            <div class="step-number">4</div>
+                            <div>Complete your first payment — manage the rest through your dashboard.</div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Getting started with Kasra is simple, transparent, and completely stress-free.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number-large">01</div>
+                    <h3>Explore</h3>
+                    <p>Browse hundreds of stores and find your favorites.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number-large">02</div>
+                    <h3>Shop</h3>
+                    <p>Choose your plan and checkout easily.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number-large">03</div>
+                    <h3>Manage</h3>
+                    <p>Stay updated on your payments anytime through your dashboard.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number-large">04</div>
+                    <h3>Save</h3>
+                    <p>Unlock special discounts and rewards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Kasra Pay Later</h2>
+                <p>Discover the benefits that make Kasra the preferred choice for flexible payments.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Financial Flexibility</h3>
+                    <p>Spread the cost of your purchases over time without straining your budget. Choose payment plans
+                        that work for you.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden fees or surprises. You'll always know exactly what you're paying and when.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Wide Acceptance</h3>
+                    <p>Use Kasra at thousands of online and physical stores across various categories.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Questions You Might Ask</h2>
+                <p>Find answers to the most common questions about Kasra Pay Later.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is Kasra really interest-free?
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, absolutely! Kasra operates on a Sharia-compliant model with no interest charges. You
+                            only pay the original product price divided into convenient installments.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What happens if I miss a payment?
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Kasra doesn't charge late fees. However, consistent missed payments may affect your credit
+                            limit and future purchasing power. We send friendly reminders to help you stay on track.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I check my remaining balance?
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can easily check your remaining balance, upcoming payments, and transaction history
+                            through your Kasra dashboard at any time.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I pay off early?
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! You can pay off your balance early at any time without any prepayment penalties. Early
+                            repayment may even improve your credit score with Kasra.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is Kasra approved by Islamic finance guidelines?
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, Kasra has been reviewed and approved by Islamic financial scholars. Our model is fully
+                            compliant with Sharia principles, with no riba (interest) involved in any transactions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Kasra</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Life Journey</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">Home & Family</a></li>
+                        <li><a href="#">Travel & Adventure</a></li>
+                        <li><a href="#">Health & Wellness</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Financial Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Personal Financing</a></li>
+                        <li><a href="#">Business Solutions</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Financial Planning</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">System Status</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Kasra. All Rights Reserved</p>
+                <p>Kasra Finance Company | Commercial Registration No: 1010627663</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script>
+        // FAQ Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+
+                question.addEventListener('click', () => {
+                    // Close other open items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            gsap.to(otherItem.querySelector('.faq-answer'), {
+                                height: 0,
+                                duration: 0.3
+                            });
+                        }
+                    });
+
+                    // Toggle current item
+                    const isActive = item.classList.contains('active');
+                    item.classList.toggle('active');
+
+                    if (isActive) {
+                        gsap.to(item.querySelector('.faq-answer'), {
+                            height: 0,
+                            duration: 0.3
+                        });
+                    } else {
+                        gsap.from(item.querySelector('.faq-answer'), {
+                            height: 0,
+                            duration: 0.3
+                        });
+                    }
+                });
+            });
+
+            // Initialize GSAP animations
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero text animation
+            gsap.from('.hero h1', {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: "power3.out"
+            });
+
+            gsap.from('.hero p', {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                delay: 0.3,
+                ease: "power3.out"
+            });
+
+            gsap.from('.btn-primary', {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                delay: 0.6,
+                ease: "power3.out"
+            });
+
+            // Feature cards animation
+            gsap.utils.toArray('.feature-card').forEach((card, i) => {
+                ScrollTrigger.create({
+                    trigger: card,
+                    start: "top 80%",
+                    onEnter: () => card.classList.add('animated'),
+                    once: true
+                });
+            });
+
+            // Store logos animation
+            gsap.utils.toArray('.store-logo').forEach((logo, i) => {
+                ScrollTrigger.create({
+                    trigger: logo,
+                    start: "top 90%",
+                    onEnter: () => {
+                        logo.classList.add('animated');
+                        gsap.from(logo, {
+                            delay: i * 0.1,
+                            duration: 0.5,
+                            scale: 0.8,
+                            ease: "back.out(1.7)"
+                        });
+                    },
+                    once: true
+                });
+            });
+
+            // Step cards animation
+            gsap.utils.toArray('.step-card').forEach((card, i) => {
+                ScrollTrigger.create({
+                    trigger: card,
+                    start: "top 80%",
+                    onEnter: () => {
+                        card.classList.add('animated');
+                        gsap.from(card, {
+                            delay: i * 0.15,
+                            duration: 0.8,
+                            rotationX: 30,
+                            ease: "power3.out"
+                        });
+                    },
+                    once: true
+                });
+            });
+
+            // Benefit cards animation
+            gsap.utils.toArray('.benefit-card').forEach((card, i) => {
+                ScrollTrigger.create({
+                    trigger: card,
+                    start: "top 85%",
+                    onEnter: () => {
+                        card.classList.add('animated');
+                        gsap.from(card, {
+                            delay: i * 0.15,
+                            duration: 0.6,
+                            x: -50,
+                            ease: "back.out(1.7)"
+                        });
+                    },
+                    once: true
+                });
+            });
+
+            // Floating animation for logo
+            gsap.to(".logo-img", {
+                y: 10,
+                duration: 2,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
+
+            // Pulse animation for CTA buttons
+            gsap.to(".cta-button, .btn-primary", {
+                scale: 1.05,
+                duration: 1.5,
+                repeat: -1,
+                yoyo: true,
+                ease: "power1.inOut"
+            });
+
+            // Background wave animation
+            const wave = document.createElement('div');
+            wave.style.position = 'absolute';
+            wave.style.bottom = '0';
+            wave.style.left = '0';
+            wave.style.width = '100%';
+            wave.style.height = '100px';
+            wave.style.background = 'url("data:image/svg+xml;utf8,<svg viewBox=\'0 0 1200 120\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z\' opacity=\'.25\' fill=\'%23ffffff\'/><path d=\'M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z\' opacity=\'.5\' fill=\'%23ffffff\'/><path d=\'M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z\' fill=\'%23ffffff\'/></svg>")';
+            wave.style.backgroundRepeat = 'repeat-x';
+            wave.style.backgroundSize = '1200px 100px';
+            document.querySelector('.hero').appendChild(wave);
+
+            gsap.to(wave, {
+                backgroundPositionX: '-1200px',
+                duration: 30,
+                repeat: -1,
+                ease: 'none'
+            });
+        });
+    </script>
+</body>
+
+</html>

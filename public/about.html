@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Kasra - Our Story & Vision</title>
+    <meta name="description" content="Discover Kasra's mission to revolutionize payments with Sharia-compliant BNPL powered by Hedera blockchain.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <style>
+        /* Inherit variables from main site */
+        :root {
+          --primary: #7b2cbf;
+          --primary-dark: #5a189a;
+          --primary-light: #9d4edd;
+          --accent: #c77dff;
+          --lavender-soft: #f3e8ff;
+          --mint-soft: #d1f4e0;
+          --peach-soft: #ffe5d9;
+          --sky-soft: #dbeafe;
+          --text-primary: #1a202c;
+          --text-secondary: #718096;
+          --background: #ffffff;
+          --font-primary: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--text-primary);
+            background-color: var(--background);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Animated Hero Section */
+        .about-hero {
+            background: linear-gradient(135deg, var(--lavender-soft) 0%, var(--sky-soft) 100%);
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 2vw, 20px);
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.7;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* Floating elements animation */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.4;
+            filter: blur(1px);
+        }
+
+        /* Story Timeline */
+        .timeline {
+            position: relative;
+            padding: 80px 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .timeline-content {
+            width: calc(50% - 40px);
+            padding: 20px 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            left: calc(50% + 40px);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            top: 30px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -60px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -60px;
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+            background: var(--background-light);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .team-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .team-info {
+            padding: 24px;
+            text-align: center;
+        }
+
+        .team-name {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .team-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 80px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            padding: 30px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--lavender-soft);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 32px;
+        }
+
+        /* Animation Classes */
+        .animate-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            transition: all 0.6s ease-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .spinning {
+            animation: spin 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Hero Section -->
+    <section class="about-hero">
+        <div class="floating-elements">
+            <div class="floating-element spinning" style="width: 200px; height: 200px; background: var(--accent); top: 10%; left: 5%;"></div>
+            <div class="floating-element floating" style="width: 150px; height: 150px; background: var(--primary-light); top: 60%; left: 80%;"></div>
+            <div class="floating-element floating" style="width: 100px; height: 100px; background: var(--mint-soft); top: 30%; left: 70%;"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Our Vision for Ethical Payments</h1>
+                <p class="hero-subtitle">
+                    Kasra was born from a simple idea: financial freedom shouldn't come at the cost of ethical principles. 
+                    We're building a future where payments are transparent, flexible, and accessible to all.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Timeline -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 60px; opacity: 0; transform: translateY(30px);">Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3 class="timeline-title">The Idea</h3>
+                        <p>Founded by a team of fintech and blockchain veterans who saw the need for ethical payment solutions in the MENA region.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3 class="timeline-title">Sharia Certification</h3>
+                        <p>Received full Sharia compliance certification from leading Islamic finance scholars.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h3 class="timeline-title">Hedera Integration</h3>
+                        <p>Became one of the first BNPL platforms to leverage Hedera Hashgraph for transparent transactions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3 class="timeline-title">Regional Expansion</h3>
+                        <p>Launched operations in 5 countries across the Middle East, serving over 100,000 customers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 60px; opacity: 0; transform: translateY(30px);">Meet The Founders</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image" style="background-image: url('http://static.photos/people/640x360/1');"></div>
+                    <div class="team-info">
+                        <h3 class="team-name">Amina Al-Farsi</h3>
+                        <div class="team-role">CEO & Co-founder</div>
+                        <p>Former head of fintech at MENA's largest Islamic bank.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image" style="background-image: url('http://static.photos/people/640x360/2');"></div>
+                    <div class="team-info">
+                        <h3 class="team-name">Karim Benali</h3>
+                        <div class="team-role">CTO & Co-founder</div>
+                        <p>Blockchain expert with 10+ years in distributed systems.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image" style="background-image: url('http://static.photos/people/640x360/3');"></div>
+                    <div class="team-info">
+                        <h3 class="team-name">Fatima Zahra</h3>
+                        <div class="team-role">CFO & Co-founder</div>
+                        <p>Specialist in Islamic finance and ethical investing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 60px; opacity: 0; transform: translateY(30px);">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>Trust</h3>
+                    <p>We build relationships based on transparency and mutual respect.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-scroll"></i></div>
+                    <h3>Compliance</h3>
+                    <p>Sharia principles guide every financial decision we make.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Innovation</h3>
+                    <p>Hedera blockchain enables fast, secure, low-cost transactions.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Community</h3>
+                    <p>We grow together with our customers and merchant partners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hero text animation
+            anime({
+                targets: '.hero-title',
+                opacity: [0, 1],
+                translateY: [30, 0],
+                duration: 800,
+                easing: 'easeOutExpo'
+            });
+
+            anime({
+                targets: '.hero-subtitle',
+                opacity: [0, 1],
+                translateY: [30, 0],
+                duration: 800,
+                delay: 200,
+                easing: 'easeOutExpo'
+            });
+
+            // Section title animations
+            const sectionTitles = document.querySelectorAll('.section-title');
+            sectionTitles.forEach(title => {
+                anime({
+                    targets: title,
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 800,
+                    easing: 'easeOutExpo',
+                    delay: 300
+                });
+            });
+
+            // Timeline animations
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                anime({
+                    targets: item,
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 600,
+                    delay: 200 + (index * 200),
+                    easing: 'easeOutExpo'
+                });
+            });
+
+            // Team and values cards animation
+            const animateCards = (selector, stagger) => {
+                anime({
+                    targets: selector,
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 600,
+                    delay: anime.stagger(stagger),
+                    easing: 'easeOutExpo'
+                });
+            };
+
+            // Scroll trigger for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('team-section')) {
+                            animateCards('.team-card', 100);
+                        }
+                        if (entry.target.classList.contains('values-section')) {
+                            animateCards('.value-card', 100);
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            observer.observe(document.querySelector('.team-section'));
+            observer.observe(document.querySelector('.values-section'));
+        });
+    </script>
+</body>
+</html>

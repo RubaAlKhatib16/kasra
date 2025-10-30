@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kasra - Own Your Dreams with Buy Now, Pay Later</title>
+  <meta name="description"
+    content="Shop now and pay later with Kasra. Split your payments into flexible installments powered by Hedera blockchain. No late fees, Sharia compliant.">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* Kasra - Animated Tamara-Inspired Design System */
+
+    :root {
+      /* Primary Colors */
+      --primary: #7b2cbf;
+      --primary-dark: #5a189a;
+      --primary-light: #9d4edd;
+      --accent: #c77dff;
+
+      /* Soft Pastel Colors */
+      --lavender-soft: #f3e8ff;
+      --mint-soft: #d1f4e0;
+      --peach-soft: #ffe5d9;
+      --sky-soft: #dbeafe;
+      --cream-soft: #fff4e6;
+
+      /* Neutral Colors */
+      --text-primary: #1a202c;
+      --text-secondary: #718096;
+      --background: #ffffff;
+      --background-light: #fafafa;
+      --border: #e2e8f0;
+
+      /* Typography */
+      --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+
+      /* Border Radius */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-full: 9999px;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      color: var(--text-primary);
+      background-color: var(--background);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    /* ==================== */
+    /* ANIMATIONS */
+    /* ==================== */
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes slideInFromTop {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes rotateIn {
+      from {
+        opacity: 0;
+        transform: rotate(-10deg) scale(0.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+      }
+    }
+
+    /* Animation Classes */
+    .animate-on-scroll {
+      opacity: 0;
+    }
+
+    .animate-on-scroll.animated {
+      animation-duration: 0.8s;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fade-in-up {
+      animation-name: fadeInUp;
+    }
+
+    .fade-in-left {
+      animation-name: fadeInLeft;
+    }
+
+    .fade-in-right {
+      animation-name: fadeInRight;
+    }
+
+    .scale-in {
+      animation-name: scaleIn;
+    }
+
+    .rotate-in {
+      animation-name: rotateIn;
+    }
+
+    /* Stagger delays */
+    .delay-100 {
+      animation-delay: 0.1s;
+    }
+
+    .delay-200 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-300 {
+      animation-delay: 0.3s;
+    }
+
+    .delay-400 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-500 {
+      animation-delay: 0.5s;
+    }
+
+    .delay-600 {
+      animation-delay: 0.6s;
+    }
+
+    /* Header */
+    .header {
+      background: var(--background);
+      box-shadow: var(--shadow-sm);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      animation: slideInFromTop 0.6s ease-out;
+    }
+
+    .header.scrolled {
+      box-shadow: var(--shadow-md);
+      padding: 8px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      transition: padding 0.3s ease;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .logo img {
+      height: auto;
+      width: 110px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      padding: 12px 28px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 15px rgba(123, 44, 191, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(123, 44, 191, 0.4);
+    }
+
+    .btn-primary:active {
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--lavender-soft);
+      transform: translateY(-2px);
+    }
+
+    .btn-lg {
+      padding: 16px 40px;
+      font-size: 17px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--lavender-soft) 0%, #ffffff 100%);
+      padding: 140px 0 80px;
+      margin-top: 76px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(123, 44, 191, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    .hero-content {
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--text-secondary);
+      margin-bottom: var(--space-2xl);
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-xl);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.02);
+    }
+
+    /* Feature Pills */
+    .feature-pills {
+      display: flex;
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 10px 20px;
+      background: white;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .pill:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pill i {
+      color: var(--primary);
+      font-size: 18px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* Benefits Section */
+    .benefits {
+      padding: var(--space-4xl) 0;
+      background: var(--background-light);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: var(--space-md);
+    }
+
+    .section-subtitle {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-xl);
+    }
+
+    .benefit-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+    }
+
+    .benefit-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(123, 44, 191, 0.05) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .benefit-card:hover::after {
+      opacity: 1;
+    }
+
+    .benefit-card.lavender {
+      background: var(--lavender-soft);
+    }
+
+    .benefit-card.mint {
+      background: var(--mint-soft);
+    }
+
+    .benefit-card.peach {
+      background: var(--peach-soft);
+    }
+
+    .benefit-card.sky {
+      background: var(--sky-soft);
+    }
+
+    .benefit-icon {
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover .benefit-icon {
+      transform: rotateY(360deg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .benefit-icon i {
+      font-size: 36px;
+      color: var(--primary);
+    }
+
+    .benefit-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+      color: var(--text-primary);
+    }
+
+    .benefit-card p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* About Section - Creative Design */
+    .about-section {
+      padding: var(--space-4xl) 0;
+      background: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--lavender-soft) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+      margin-bottom: var(--space-4xl);
+    }
+
+    .about-image {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-content h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: var(--space-lg);
+    }
+
+    .about-content p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-lg);
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+      margin-top: var(--space-3xl);
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: var(--space-xl);
+      background: var(--lavender-soft);
+      border-radius: var(--radius-lg);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px);
+      background: var(--primary);
+      color: white;
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: var(--space-sm);
+      transition: color 0.3s ease;
+    }
+
+    .stat-card:hover .stat-number {
+      color: white;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: color 0.3s ease;
+    }
+
+    .stat-card:hover .stat-label {
+      color: white;
+    }
+
+    /* Values Section */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-3xl);
+    }
+
+    .value-card {
+      padding: var(--space-xl);
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(123, 44, 191, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .value-card:hover::before {
+      left: 100%;
+    }
+
+    .value-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .value-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-lg);
+      transition: transform 0.3s ease;
+    }
+
+    .value-card:hover .value-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .value-icon i {
+      font-size: 32px;
+      color: white;
+    }
+
+    .value-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+      color: var(--text-primary);
+    }
+
+    .value-card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* How It Works Section */
+    .how-it-works {
+      padding: var(--space-4xl) 0;
+      background: var(--background-light);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-2xl);
+      margin-top: var(--space-3xl);
+      position: relative;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 auto var(--space-lg);
+      box-shadow: 0 4px 15px rgba(123, 44, 191, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .step:hover .step-number {
+      transform: scale(1.15) rotate(360deg);
+      box-shadow: 0 6px 20px rgba(123, 44, 191, 0.5);
+    }
+
+    .step h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+      color: var(--text-primary);
+    }
+
+    .step p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: var(--space-4xl) 0;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite;
+    }
+
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 12s ease-in-out infinite reverse;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-title {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      margin-bottom: var(--space-lg);
+    }
+
+    .cta-subtitle {
+      font-size: clamp(16px, 2vw, 20px);
+      margin-bottom: var(--space-2xl);
+      opacity: 0.95;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--primary);
+    }
+
+    .btn-white:hover {
+      background: var(--lavender-soft);
+      transform: translateY(-3px);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .btn-outline-white:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: #1a202c;
+      color: #e2e8f0;
+      padding: var(--space-3xl) 0 var(--space-lg);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-2xl);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .footer-column h3 {
+      font-size: 18px;
+      margin-bottom: var(--space-lg);
+      color: white;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-links a {
+      color: #cbd5e0;
+      transition: all 0.3s ease;
+      font-size: 15px;
+      display: inline-block;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: var(--space-lg);
+      border-top: 1px solid #4a5568;
+      color: #cbd5e0;
+      font-size: 14px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px) rotate(360deg);
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: var(--space-4xl) 0;
+      background: white;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-xl);
+      margin-top: var(--space-3xl);
+    }
+
+    .testimonial-card {
+      background: var(--lavender-soft);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      position: relative;
+      transition: all 0.4s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+      background: white;
+      border: 2px solid var(--primary);
+    }
+
+    .testimonial-rating {
+      display: flex;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-lg);
+    }
+
+    .testimonial-rating i {
+      color: #fbbf24;
+      font-size: 18px;
+    }
+
+    .testimonial-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-xl);
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+    }
+
+    .author-info h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .author-info p {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* Partners Section */
+    .partners-section {
+      padding: var(--space-4xl) 0;
+      background: var(--background-light);
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: var(--space-xl);
+      margin-top: var(--space-3xl);
+    }
+
+    .partner-logo {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid var(--border);
+    }
+
+    .partner-logo:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .partner-logo i {
+      transition: all 0.3s ease;
+    }
+
+    .partner-logo:hover i {
+      transform: scale(1.2);
+      color: var(--primary) !important;
+    }
+
+    .partner-logo p {
+      margin-top: var(--space-md);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+      }
+
+      .hero-image,
+      .about-image {
+        order: -1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 100px 0 60px;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .benefits-grid,
+      .steps-grid,
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="/5980830277548756190-removebg-preview.svg" alt="Kasra Logo">
+        </a>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a href="/login" class="btn btn-primary">
+            <i class="fas fa-wallet"></i>
+            Sign Up
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1 class="hero-title animate-on-scroll fade-in-left">Kasra: Buy Now, Pay Later, Your Way</h1>
+          <p class="hero-subtitle animate-on-scroll fade-in-left delay-100">
+            Experience financial freedom with Kasra. Shop the products you love and choose how and when you pay—fully
+            secure and sharia-compliant.
+          </p>
+
+          <div class="feature-pills animate-on-scroll fade-in-left delay-200">
+            <div class="pill">
+              <i class="fas fa-shield-alt"></i>
+              <span>No Late Fees</span>
+            </div>
+            <div class="pill">
+              <i class="fas fa-moon"></i>
+              <span>Sharia-Compliant</span>
+            </div>
+            <div class="pill">
+              <i class="fas fa-credit-card"></i>
+              <span>Flexible Payment Options</span>
+            </div>
+          </div>
+
+          <div class="hero-actions animate-on-scroll fade-in-left delay-300" style="margin-top: 32px;">
+            <a href="/shop" class="btn btn-primary btn-lg">
+              <i class="fas fa-shopping-bag"></i>
+              Start Shopping
+            </a>
+            <a href="#how-it-works" class="btn btn-secondary btn-lg">
+              <i class="fas fa-play-circle"></i>
+              How Kasra Works
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image animate-on-scroll fade-in-right delay-200">
+          <img src="Gemini_Generated_Image_q0pmccq0pmccq0pm.png" alt="Enjoy shopping with Kasra">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Benefits Section -->
+  <section class="benefits">
+    <div class="container">
+      <div class="section-header animate-on-scroll fade-in-up">
+        <h2 class="section-title">Kasra Makes Payments Effortless</h2>
+        <p class="section-subtitle">
+          Trusted, simple, and flexible—Kasra empowers you to shop your way, anytime, anywhere.
+        </p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card lavender animate-on-scroll scale-in delay-100">
+          <div class="benefit-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>No Late Fees</h3>
+          <p>Pay on your terms. We prioritize flexibility and trust—no hidden charges, ever.</p>
+        </div>
+
+        <div class="benefit-card mint animate-on-scroll scale-in delay-200">
+          <div class="benefit-icon">
+            <i class="fas fa-moon"></i>
+          </div>
+          <h3>Sharia Compliant</h3>
+          <p>Ethical payment solutions fully compliant with Sharia principles for everyone.</p>
+        </div>
+
+        <div class="benefit-card peach animate-on-scroll scale-in delay-300">
+          <div class="benefit-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3>Flexible Installments</h3>
+          <p>Spread your payments up to 24 months. Choose a plan that fits your lifestyle.</p>
+        </div>
+
+        <div class="benefit-card sky animate-on-scroll scale-in delay-400">
+          <div class="benefit-icon">
+            <i class="fab fa-hive"></i>
+          </div>
+          <h3>Hedera-Powered</h3>
+          <p>Experience secure, transparent, and instant transactions with ultra-low blockchain fees.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image animate-on-scroll fade-in-left">
+          <img src="Gemini_Generated_Image_3arl9n3arl9n3arl.png" alt="Kasra Team">
+        </div>
+
+        <div class="about-content animate-on-scroll fade-in-right">
+          <h2>Empowering Dreams with Ethical Finance</h2>
+          <p>
+            Kasra makes shopping accessible to everyone with transparent, Sharia-compliant payment solutions.
+            Powered by Hedera blockchain, we are redefining Buy Now, Pay Later in the Middle East.
+          </p>
+          <p>
+            Our platform ensures secure, transparent transactions while offering flexible payment options that respect
+            your values.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-stats">
+        <div class="stat-card animate-on-scroll scale-in delay-100">
+          <div class="stat-number counter" data-target="50000" data-suffix="+">0</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+
+        <div class="stat-card animate-on-scroll scale-in delay-200">
+          <div class="stat-number counter" data-target="1000" data-suffix="+">0</div>
+          <div class="stat-label">Partner Merchants</div>
+        </div>
+
+        <div class="stat-card animate-on-scroll scale-in delay-300">
+          <div class="stat-number counter" data-target="10" data-suffix="M+">0</div>
+          <div class="stat-label">Transactions Processed</div>
+        </div>
+      </div>
+
+      <div class="section-header animate-on-scroll fade-in-up" style="margin-top: 80px;">
+        <h2 class="section-title">Our Core Values</h2>
+        <p class="section-subtitle">Guiding principles behind everything we do</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card animate-on-scroll rotate-in delay-100">
+          <div class="value-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Trust & Transparency</h3>
+          <p>Every transaction is securely recorded on the blockchain for full accountability.</p>
+        </div>
+
+        <div class="value-card animate-on-scroll rotate-in delay-200">
+          <div class="value-icon">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <h3>Customer First</h3>
+          <p>Our users are at the center of everything, ensuring a smooth and reliable experience.</p>
+        </div>
+
+        <div class="value-card animate-on-scroll rotate-in delay-300">
+          <div class="value-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Innovation</h3>
+          <p>We use cutting-edge blockchain technology to create smarter financial solutions.</p>
+        </div>
+
+        <div class="value-card animate-on-scroll rotate-in delay-400">
+          <div class="value-icon">
+            <i class="fas fa-balance-scale"></i>
+          </div>
+          <h3>Ethical Finance</h3>
+          <p>Sharia-compliant solutions that ensure ethical and responsible financial practices.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- How It Works Section -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header animate-on-scroll fade-in-up">
+        <h2 class="section-title">How Kasra Works</h2>
+        <p class="section-subtitle">
+          Shop in minutes and pay your way—simple, fast, and secure.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step animate-on-scroll scale-in delay-100">
+          <div class="step-number">1</div>
+          <h3>Browse & Shop</h3>
+          <p>Explore thousands of products from top brands and stores.</p>
+        </div>
+
+        <div class="step animate-on-scroll scale-in delay-200">
+          <div class="step-number">2</div>
+          <h3>Choose Kasra at Checkout</h3>
+          <p>Select "Pay with Kasra" and pick the plan that suits you.</p>
+        </div>
+
+        <div class="step animate-on-scroll scale-in delay-300">
+          <div class="step-number">3</div>
+          <h3>Instant Approval</h3>
+          <p>Fast verification and approval in seconds—no delays.</p>
+        </div>
+
+        <div class="step animate-on-scroll scale-in delay-400">
+          <div class="step-number">4</div>
+          <h3>Pay Over Time</h3>
+          <p>Enjoy your purchase now and pay in easy, flexible installments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- Partners Section -->
+  <section class="partners-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll fade-in-up">
+        <h2 class="section-title">Trusted by Top Brands</h2>
+        <p class="section-subtitle">Shop confidently across multiple categories with Kasra</p>
+      </div>
+
+      <div class="partners-grid">
+        <div class="partner-logo animate-on-scroll scale-in delay-100">
+          <i class="fas fa-shopping-cart" style="font-size: 48px; color: var(--text-secondary);"></i>
+          <p>E-Commerce</p>
+        </div>
+        <div class="partner-logo animate-on-scroll scale-in delay-200">
+          <i class="fas fa-laptop" style="font-size: 48px; color: var(--text-secondary);"></i>
+          <p>Electronics</p>
+        </div>
+        <div class="partner-logo animate-on-scroll scale-in delay-300">
+          <i class="fas fa-tshirt" style="font-size: 48px; color: var(--text-secondary);"></i>
+          <p>Fashion</p>
+        </div>
+        <div class="partner-logo animate-on-scroll scale-in delay-400">
+          <i class="fas fa-home" style="font-size: 48px; color: var(--text-secondary);"></i>
+          <p>Home & Living</p>
+        </div>
+        <div class="partner-logo animate-on-scroll scale-in delay-500">
+          <i class="fas fa-dumbbell" style="font-size: 48px; color: var(--text-secondary);"></i>
+          <p>Sports</p>
+        </div>
+        <div class="partner-logo animate-on-scroll scale-in delay-600">
+          <i class="fas fa-book" style="font-size: 48px; color: var(--text-secondary);"></i>
+          <p>Education</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content animate-on-scroll fade-in-up">
+        <h2 class="cta-title">Start Shopping with Kasra Today</h2>
+        <p class="cta-subtitle">
+          Join thousands of satisfied customers enjoying flexible, secure, and Sharia-compliant payments. Shop now or
+          create your account in seconds.
+        </p>
+        <div class="cta-actions">
+          <a href="/shop" class="btn btn-white btn-lg">
+            <i class="fas fa-shopping-bag"></i>
+            Shop Now
+          </a>
+          <a href="/login" class="btn btn-outline-white btn-lg">
+            <i class="fas fa-user-plus"></i>
+            Create Account
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-column">
+          <h3>About Kasra</h3>
+          <p style="color: #cbd5e0; margin-bottom: 16px; line-height: 1.7;">
+            Kasra is a Sharia-compliant Buy Now, Pay Later platform powered by Hedera blockchain, offering transparent,
+            flexible shopping for everyone.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>For Shoppers</h3>
+          <ul class="footer-links">
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/profile">Your Profile</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>For Merchants</h3>
+          <ul class="footer-links">
+            <li><a href="#">Merchant Sign Up</a></li>
+            <li><a href="#">Integration Guide</a></li>
+            <li><a href="#">Success Stories</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#">Sharia Committee</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom" style="margin-top: 32px; text-align: center; color: #cbd5e0;">
+        <p>&copy; 2025 Kasra. All rights reserved. Powered by Hedera Blockchain.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Animated Counter for Statistics
+    function animateCounter(element, target, duration = 2000) {
+      let start = 0;
+      const increment = target / (duration / 16);
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+          element.textContent = target.toLocaleString() + (element.dataset.suffix || '');
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(start).toLocaleString() + (element.dataset.suffix || '');
+        }
+      }, 16);
+    }
+
+    // Scroll Animation Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.animate-on-scroll');
+      animatedElements.forEach(el => observer.observe(el));
+
+      // Header scroll effect
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      // Animated counters
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const target = parseInt(entry.target.dataset.target);
+            animateCounter(entry.target, target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('.counter').forEach(counter => {
+        counterObserver.observe(counter);
+      });
+    });
+  </script>
+  <script src="/js/main.js"></script>
+  <script src="/js/wallet.js"></script>
+</body>
+
+</html>
